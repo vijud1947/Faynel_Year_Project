@@ -160,8 +160,11 @@ def home():
              'sensitive information such as usernames, passwords, credit card numbers, or other personal or financial data. These attacks typically '
              'involve impersonating a trusted entity, such as a bank, a government agency, a company, or even a colleague or friend.')
 
-    st.image("Assests\Phishing-account.gif", use_column_width=True)
-
+    # st.image("static\Phishing-account.gif", use_column_width=True)
+    st.markdown(
+        '<img src="./app/static/Phishing-account.gif">',
+        unsafe_allow_html=True,
+    )
     with st.expander('EXAMPLE PHISHING URLs:'):
         st.write('_https://rtyu38.godaddysites.com/_')
         st.write('_https://karafuru.invite-mint.com/_')
@@ -216,11 +219,19 @@ def home():
                 result = model.predict(vector)
                 if result[0] == 0:
                     st.success("This web page seems legitimate!")
-                    st.image("Assests\Safe.gif", use_column_width=True)
+                    # st.image("static\Safe.gif", use_column_width=True)
+                    st.markdown(
+                        '<img src="./app/static/Safe.gif">',
+                        unsafe_allow_html=True,
+                    )
                     st.balloons()
                 else:
                     st.warning("Attention! This web page is a potential phishing!")
-                    st.image("Assests\Warning.gif", use_column_width=True)
+                    # st.image("static\Warning.gif", use_column_width=True)
+                    st.markdown(
+                        '<img src="./app/static/Warning.gif">',
+                        unsafe_allow_html=True,
+                    )
                     st.snow()
 
         except re.exceptions.RequestException as e:
@@ -311,8 +322,12 @@ def project_details():
     st.write('KN --> K-Neighbours')
     # Add a horizontal line
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.write("Phishing GIF",unsafe_allow_html=True)
-    st.image("Assests\phising.gif", use_column_width=True)
+    st.subheader("Phishing Demo.")
+    # st.image("static\phising.gif", use_column_width=True)
+    st.markdown(
+        '<img src="./app/static/phising.gif">',
+        unsafe_allow_html=True,
+    )
     st.markdown("<hr>", unsafe_allow_html=True)
 
 def about_us():
