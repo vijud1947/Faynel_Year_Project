@@ -162,7 +162,8 @@ st.set_page_config(page_title='Phishing Website Detection Using Machine Learning
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-phishing_account_pic = current_dir / "static" / "Phishing-account.gif.png"
+css_file = current_dir / "styles" / "main.css"
+phishing_account_pic = current_dir / "static" / "Phishing-account.gif"
 
 
 
@@ -177,11 +178,35 @@ st.write('Phishing attacks are a common type of cyber attack where malicious act
          'sensitive information such as usernames, passwords, credit card numbers, or other personal or financial data. These attacks typically '
          'involve impersonating a trusted entity, such as a bank, a government agency, a company, or even a colleague or friend.')
 
+
+
+
+
 # st.image("static\Phishing-account.gif", use_column_width=True)
-st.markdown(
-    '<img src="./app/static/Phishing-account.gif">',
-    unsafe_allow_html=True,
-)
+# st.markdown(
+#     '<img src="phishing_account_pic">',
+#     unsafe_allow_html=True,
+# )
+#
+# # --- LOAD CSS, PDF & PROFIL PIC ---
+# with open(css_file) as f:
+#     st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+# phishing_account_pic = Image.open(phishing_account_pic)
+
+
+# # --- HERO SECTION ---
+# col1, col2 = st.columns(2, gap="small")
+# with col1:
+#     st.image(phishing_account_pic)
+
+
+# Load the GIF
+gif_path = "static/Phishing-account.gif"
+
+# Display the GIF
+st.image(gif_path, caption='PHISHr', use_column_width=True)
+
+
 with st.expander('EXAMPLE PHISHING URLs:'):
     st.write('_https://rtyu38.godaddysites.com/_')
     st.write('_https://karafuru.invite-mint.com/_')
@@ -237,18 +262,28 @@ if st.button('Check!'):
             if result[0] == 0:
                 st.success("This web page seems legitimate!")
                 # st.image("static\Safe.gif", use_column_width=True)
-                st.markdown(
-                    '<img src="./app/static/Safe.gif">',
-                    unsafe_allow_html=True,
-                )
+                # st.markdown(
+                #     '<img src="./app/static/Safe.gif">',
+                #     unsafe_allow_html=True,
+                # )
+                # Load the GIF
+                gif_path3 = "static/Safe.gif"
+
+                # Display the GIF
+                st.image(gif_path3, caption='Safe', use_column_width=True)
                 st.balloons()
             else:
                 st.warning("Attention! This web page is a potential phishing!")
                 # st.image("static\Warning.gif", use_column_width=True)
-                st.markdown(
-                    '<img src="./app/static/Warning.gif">',
-                    unsafe_allow_html=True,
-                )
+                # st.markdown(
+                #     '<img src="./app/static/Warning.gif">',
+                #     unsafe_allow_html=True,
+                # )
+                # Load the GIF
+                gif_path2 = "static/Warning.gif"
+
+                # Display the GIF
+                st.image(gif_path2, caption='Warning', use_column_width=True)
                 st.snow()
 
     except re.exceptions.RequestException as e:
