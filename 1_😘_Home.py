@@ -156,6 +156,18 @@ import requests as re
 import matplotlib.pyplot as plt
 from pathlib import Path
 from PIL import Image
+#
+# # File names with Bootstrap icons
+# file_names = {
+#     "1_😘_Home.py": "home",  # Replace ❤️ with "house-fill" icon
+#     "2_❤️_Project_Description.py": "file-earmark-text",  # Replace ⭐ with "file-earmark-text" icon
+#     "3_😊_Contact_Us.py": "telephone-fill"  # Replace 📞 with "telephone-fill" icon
+# }
+#
+#
+# # Display file names with icons
+# for file_name, icon_name in file_names.items():
+#     st.write(f'<i class="bi bi-{icon_name}"></i> {file_name}', unsafe_allow_html=True)
 
 
 st.set_page_config(page_title='Phishing Website Detection Using Machine Learning', page_icon='./static/favicon.png')
@@ -181,7 +193,6 @@ st.write('Phishing attacks are a common type of cyber attack where malicious act
 
 
 
-
 # st.image("static\Phishing-account.gif", use_column_width=True)
 # st.markdown(
 #     '<img src="phishing_account_pic">',
@@ -201,12 +212,12 @@ st.write('Phishing attacks are a common type of cyber attack where malicious act
 
 
 # Load the GIF
-gif_path = "static/Phishing-account.gif"
+phishing_acc = "static/Phishing-account.gif"
 
 # Display the GIF
-st.image(gif_path, caption='PHISHr', use_column_width=True)
+st.image(phishing_acc, caption='PHISHr', use_column_width=True)
 
-
+st.markdown("<hr>", unsafe_allow_html=True)
 with st.expander('EXAMPLE PHISHING URLs:'):
     st.write('_https://rtyu38.godaddysites.com/_')
     st.write('_https://karafuru.invite-mint.com/_')
@@ -267,10 +278,10 @@ if st.button('Check!'):
                 #     unsafe_allow_html=True,
                 # )
                 # Load the GIF
-                gif_path3 = "static/Safe.gif"
+                Safe = "static/Safe.gif"
 
                 # Display the GIF
-                st.image(gif_path3, caption='Safe', use_column_width=True)
+                st.image(Safe, caption='Safe', use_column_width=True)
                 st.balloons()
             else:
                 st.warning("Attention! This web page is a potential phishing!")
@@ -280,10 +291,10 @@ if st.button('Check!'):
                 #     unsafe_allow_html=True,
                 # )
                 # Load the GIF
-                gif_path2 = "static/Warning.gif"
+                warning = "static/Warning.gif"
 
                 # Display the GIF
-                st.image(gif_path2, caption='Warning', use_column_width=True)
+                st.image(warning, caption='Warning', use_column_width=True)
                 st.snow()
 
     except re.exceptions.RequestException as e:
